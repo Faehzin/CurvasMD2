@@ -10,7 +10,7 @@ def extended_gcd(a, b):
 def mod_inverse(a, p):
     a = a % p
     if a == 0:
-        return None  # Sem inverso modular se a == 0
+        return None
     g, x, _ = extended_gcd(a, p)
     if g != 1:
         return None

@@ -1,6 +1,15 @@
 import random
 from sympy import isprime
 
+
+def importar_mensagem():
+    try:
+        with open("mensagem.txt", "r") as arquivo:
+            mensagem = arquivo.read()
+        return mensagem
+    except FileNotFoundError:
+        print("O arquivo 'mensagem.txt' não foi encontrado!")
+
 def extended_gcd(a, b):
     if a == 0:
         return b, 0, 1
@@ -146,7 +155,9 @@ else:
 
 key = [R[0] % 256, R[1] % 256]  
 
-message = input("Digite a mensagem para criptografar: ")
+#message = input("Digite a mensagem a ser criptografada: ")
+message = importar_mensagem()
+    
 encrypted_message = encrypt_message(message, key)
 print(f"Mensagem criptografada: {encrypted_message}")
 
